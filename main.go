@@ -3,7 +3,7 @@ package main
 import (
 	"first_work_jty/config"
 	"first_work_jty/dao"
-	"first_work_jty/model"
+	"first_work_jty/model/PO"
 	"first_work_jty/router"
 	"fmt"
 )
@@ -21,7 +21,7 @@ func main() {
 		return
 	}
 	// 创建表
-	dao.DB.AutoMigrate(&model.User{})
+	dao.DB.AutoMigrate(&PO.User{})
 	// 断开数据库连接
 	defer dao.Close()
 

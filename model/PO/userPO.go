@@ -1,4 +1,4 @@
-package model
+package PO
 
 import (
 	"first_work_jty/dao"
@@ -40,7 +40,7 @@ func UpdateUser(user *User) (err error) {
 	return
 }
 
-func DeleteUserById(id string) (err error) {
+func DeleteUserById(id uint) (err error) {
 	err = dao.DB.Where("id=?", id).Delete(&User{}).Error
 	return
 }

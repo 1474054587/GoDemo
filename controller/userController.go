@@ -1,30 +1,40 @@
 package controller
 
 import (
+	"first_work_jty/model/VO"
 	"first_work_jty/service"
 	"github.com/gin-gonic/gin"
 )
 
 func UserRegister(c *gin.Context) {
-	username := c.PostForm("username")
-	password := c.PostForm("password")
+	var userVO VO.UserVO
+	c.BindJSON(&userVO)
+	username := userVO.Username
+	password := userVO.Password
 	service.UserRegister(c, username, password)
 }
 
 func UserLogin(c *gin.Context) {
-	username := c.PostForm("username")
-	password := c.PostForm("password")
+	var userVO VO.UserVO
+	c.BindJSON(&userVO)
+	username := userVO.Username
+	password := userVO.Password
 	service.UserLogin(c, username, password)
 }
 
 func UserUpdatePassword(c *gin.Context) {
-	username := c.PostForm("username")
-	oldPassword := c.PostForm("oldPassword")
-	newPassword := c.PostForm("newPassword")
+	var userVO VO.UserVO
+	c.BindJSON(&userVO)
+	username := userVO.Username
+	oldPassword := userVO.OldPassword
+	newPassword := userVO.NewPassword
 	service.UserUpdatePassword(c, username, oldPassword, newPassword)
 }
 
 func UserDelete(c *gin.Context) {
-	id := c.PostForm("id")
-	service.UserDelete(c, id)
+	var userVO VO.UserVO
+	c.BindJSON(&userVO)
+	username := userVO.Username
+	password := userVO.Password
+	service.UserDelete(c, username, password)
 }

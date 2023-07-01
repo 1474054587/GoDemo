@@ -33,19 +33,23 @@ Windows:
 first_work_jty.exe
 ```
 ### 接口
-1. 登录
+1. 登录页面
+   - type: GET
+   - path1: /
+   - path2: /login
+2. 登录
    - type: POST
    - path: /login
    - params: username,password
-2. 注册
+3. 注册
     - type: POST
     - path: /login/register
     - params: username,password
-3. 修改密码
+4. 修改密码
     - type: POST
     - path: /login/updatePassword
     - params: username,oldPassword,newPassword
-4. 注销账号
+5. 注销账号
     - type: POST
     - path: /login/deleteUser
     - params: id
